@@ -137,6 +137,27 @@ export class SprintSimulator {
         });
     }
 
+    handleKeyboardMove(taskId, currentStatus, key) {
+        const flow = ['todo', 'inprogress', 'done'];
+        const currentIndex = flow.indexOf(currentStatus);
+
+        let newStatus = null;
+        if (key === 'ArrowRight' && currentIndex < flow.length - 1) {
+            newStatus = flow[currentIndex + 1];
+        } else if (key === 'ArrowLeft' && currentIndex > 0) {
+            newStatus = flow[currentIndex - 1];
+        }
+
+        if (newStatus) {
+            // Save ID to restore focus
+            this.lastFocusedTaskId = taskId;
+            store.moveTask(taskId, newStatus);
+
+            const statusNames = { 'todo': 'Por Hacer', 'inprogress': 'En Progreso', 'done': 'Terminado' };
+            ToastSystem.show(`Tarea movida a: ${statusNames[newStatus]}`, "success", 1500);
+        }
+    }
+
     renderBoard(tasksState) {
         const columnMap = {
             'todo': 'col-todo',
@@ -155,12 +176,27 @@ export class SprintSimulator {
             card.className = `kanban-card ${status}-task animate-fadeIn`;
             card.draggable = true;
             card.id = task.id;
+
+            // ACCESSIBILITY: Keyboard support
+            card.tabIndex = 0;
+            card.setAttribute('role', 'button');
+            const statusNames = { 'todo': 'Por Hacer', 'inprogress': 'En Progreso', 'done': 'Terminado' };
+            card.setAttribute('aria-label', `${task.title}. Estado: ${statusNames[status]}. Usa flechas izquierda/derecha para mover.`);
+
             card.innerHTML = `
                 <div class="card-title">${task.title}</div>
                 <div class="card-meta">
                     <span class="pts">${task.points} SP</span>
                 </div>
             `;
+
+            // Keyboard Listener
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    this.handleKeyboardMove(task.id, status, e.key);
+                }
+            });
 
             card.addEventListener('dragstart', (e) => {
                 e.dataTransfer.setData('text/plain', task.id);
@@ -171,6 +207,12 @@ export class SprintSimulator {
             const colId = columnMap[status];
             const container = document.querySelector(`#${colId} .droppable-area`);
             if (container) container.appendChild(card);
+
+            // Restore Focus
+            if (this.lastFocusedTaskId === task.id) {
+                requestAnimationFrame(() => card.focus());
+                this.lastFocusedTaskId = null;
+            }
         };
 
         tasksState.todo.forEach(t => renderTask(t, 'todo'));

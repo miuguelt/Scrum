@@ -571,12 +571,12 @@ strong {
 
 /* Mermaid Container */
 .mermaid-container {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--glass-bg);
     padding: 2rem;
     border-radius: var(--radius-lg);
     margin: 2.5rem 0;
     text-align: center;
-    color: #1e293b;
+    color: var(--text-main);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
 }

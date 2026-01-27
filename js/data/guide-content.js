@@ -130,9 +130,9 @@ export const guideContent = {
                         C --> D(Mejora)
                         D --> A
                         style B fill:#2dd4bf,stroke:#fff,color:#0b1020;
-                        style A fill:rgba(255,255,255,0.05),stroke:var(--primary),color:#fff;
-                        style C fill:rgba(255,255,255,0.05),stroke:var(--secondary),color:#fff;
-                        style D fill:rgba(255,255,255,0.05),stroke:var(--accent),color:#fff;
+                        style A fill:#ffffff0d,stroke:#2dd4bf,color:#fff;
+                        style C fill:#ffffff0d,stroke:#fb923c,color:#fff;
+                        style D fill:#ffffff0d,stroke:#a3e635,color:#fff;
                 </div>
                 <p class="caption">Cada ciclo es una oportunidad para aprender, adaptar y entregar algo mejor.</p>
             </div>

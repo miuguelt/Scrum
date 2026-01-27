@@ -206,16 +206,16 @@ class ScrumApp {
         // Inject Content First
         if (guideContent[sectionId]) {
             guideContainer.innerHTML = guideContent[sectionId];
-            this.renderDiagrams();
 
             // If it's the 'apropiacion' section, render the backlog grid
             if (sectionId === 'apropiacion') {
                 this.renderBacklogGrid();
             }
 
-            // Trigger Animation
+            // Trigger Animation and Render Diagrams (must be visible for Mermaid)
             setTimeout(() => {
                 guideContainer.classList.add('active-view');
+                this.renderDiagrams();
             }, 50);
 
             // If it's the games hub, make sure the container starts hidden or empty
@@ -781,11 +781,14 @@ class ScrumApp {
         }
     }
 
-    renderDiagrams() {
+    async renderDiagrams() {
         // Re-render mermaid diagrams if any are present
         if (typeof mermaid !== 'undefined') {
             try {
-                mermaid.run();
+                const nodes = document.querySelectorAll('.mermaid');
+                if (nodes.length > 0) {
+                    await mermaid.run({ nodes: nodes });
+                }
             } catch (e) {
                 console.warn("Mermaid run error:", e);
             }

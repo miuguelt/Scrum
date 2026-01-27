@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-label="Mapa visual de Scrum: roles, eventos, artefactos y empirismo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#101b32"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#fb923c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity="0.42"/>
+    </filter>
+    <style>
+      .title{font:800 44px/1.2 system-ui,Segoe UI,Roboto,Arial; fill:#e2e8f0}
+      .label{font:750 22px/1.2 system-ui,Segoe UI,Roboto,Arial; fill:#f8fafc}
+      .text{font:520 18px/1.35 system-ui,Segoe UI,Roboto,Arial; fill:#cbd5e1}
+      .muted{font:600 16px/1.35 system-ui,Segoe UI,Roboto,Arial; fill:#94a3b8}
+      .pill{font:750 14px/1 system-ui,Segoe UI,Roboto,Arial; fill:#0b1020}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="720" rx="28" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1352" height="672" rx="22" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="70" y="92" class="title">Scrum en una imagen</text>
+  <text x="70" y="128" class="muted">Empirismo: Transparencia · Inspección · Adaptación</text>
+
+  <g filter="url(#shadow)">
+    <circle cx="700" cy="360" r="130" fill="rgba(30,41,59,0.65)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="640" y="282" width="120" height="26" rx="13" fill="url(#accent)"/>
+    <text x="666" y="301" class="pill">NÚCLEO</text>
+    <text x="642" y="344" class="label">Scrum</text>
+    <text x="642" y="374" class="text">Entrega valor</text>
+    <text x="642" y="402" class="text">en Sprints</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="210" width="360" height="220" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="146" y="230" width="92" height="26" rx="13" fill="#fb923c"/>
+    <text x="166" y="249" class="pill">QUIÉN</text>
+    <text x="146" y="292" class="label">Roles</text>
+    <text x="146" y="326" class="text">• Product Owner</text>
+    <text x="146" y="354" class="text">• Scrum Master</text>
+    <text x="146" y="382" class="text">• Developers</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="920" y="210" width="360" height="220" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="946" y="230" width="102" height="26" rx="13" fill="#2dd4bf"/>
+    <text x="966" y="249" class="pill">CÓMO</text>
+    <text x="946" y="292" class="label">Eventos</text>
+    <text x="946" y="326" class="text">• Planning</text>
+    <text x="946" y="354" class="text">• Daily Scrum</text>
+    <text x="946" y="382" class="text">• Review · Retro</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="520" y="500" width="360" height="180" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="546" y="520" width="124" height="26" rx="13" fill="#a3e635"/>
+    <text x="566" y="539" class="pill">QUÉ</text>
+    <text x="546" y="582" class="label">Artefactos</text>
+    <text x="546" y="616" class="text">• Product Backlog</text>
+    <text x="546" y="644" class="text">• Sprint Backlog</text>
+    <text x="546" y="672" class="text">• Incremento</text>
+  </g>
+
+  <path d="M480 320 C560 320, 600 330, 610 350" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M920 320 C840 320, 800 330, 790 350" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M700 490 C700 450, 700 430, 700 420" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+
+  <g>
+    <rect x="120" y="468" width="360" height="190" rx="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="146" y="508" class="label">Tip de estudio</text>
+    <text x="146" y="542" class="text">Piensa así:</text>
+    <text x="146" y="572" class="text">• Roles = responsables</text>
+    <text x="146" y="600" class="text">• Eventos = inspección/adaptación</text>
+    <text x="146" y="628" class="text">• Artefactos = trabajo/valor visible</text>
+  </g>
+</svg>

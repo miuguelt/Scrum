@@ -1,0 +1,37 @@
+# 🚨 LEEME_URGENTE.txt 🚨
+
+SI NO LEES ESTO, LA APLICACIÓN NO FUNCIONARÁ.
+
+## 🛑 El Problema: "Pantalla negra" o "Nada carga"
+Esta aplicación web utiliza **Tecnología Moderna (ES6 Modules)**, tal como pide el estándar de la industria hoy en día.
+Por seguridad, los navegadores (Chrome, Edge, Firefox) **BLOQUEAN** estos archivos si intentas abrirlos dando doble clic al `index.html`.
+
+## ✅ La Solución (Elige una):
+
+### Opción 1: Visual Studio Code (La más fácil y profesional)
+1. Abre esta carpeta en VS Code.
+2. Ve a las extensiones (Cajita cuadrada a la izquierda) e instala **"Live Server"**.
+3. Haz clic derecho en el archivo `index.html`.
+4. Elige **"Open with Live Server"**.
+   -> ¡Se abrirá automáticamente y funcionará perfecto! 🚀
+
+### Opción 2: Python (Si eres de Backend)
+Abre la terminal en esta carpeta y escribe:
+`python -m http.server`
+Luego entra a `http://localhost:8000`
+
+---
+
+## 🌟 Novedades de la Versión 2.0 (Mejorada)
+Hemos escuchado tu feedback y hemos reconstruido el núcleo de la App:
+
+1.  **Arquitectura "Store" Reactiva**: Ahora hay un cerebro central que controla todo. Si recargas la página, ¡tu nivel y XP se guardan!
+2.  **Valores Scrum**: Agregamos los 5 valores fundamentales (Coraje, Respeto, etc.) en la teoría.
+3.  **Simulador Robusto**:
+    - Calculadora de **Velocidad** real.
+    - Eventos aleatorios (enfermedades, bugs).
+    - Arrastrar y soltar ahora es mucho más fluido.
+4.  **Diagnóstico de Errores**: Si algo falla, la pantalla te dirá exactamente por qué.
+5.  **Recorrido guiado mejorado**: Tutorial de bienvenida con estilo “nube”, resaltado dinámico y botones más claros.
+
+¡Esperamos que disfrutes aprendiendo Scrum con esta herramienta de nivel SENA ADSO!

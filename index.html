@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Aprendizaje: ScrumMastery ADSO</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/game-vision.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Mermaid.js for Diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- PANTALLA DE CARGA -->
+    <div id="app-loader">
+        <div class="loader-content">
+            <h2 class="animate-pulse">Cargando Guía Interactiva...</h2>
+            <p id="loader-msg">Preparando entorno de aprendizaje...</p>
+        </div>
+    </div>
+
+    <div class="app-layout">
+        <!-- SIDEBAR DE NAVEGACIÓN -->
+        <aside class="sidebar collapsed" id="main-sidebar">
+            <div class="sidebar-header">
+                <div class="header-content">
+                    <div class="logo">Scrum<span class="highlight">ADSO</span></div>
+                    <p class="subtitle">Guía de Aprendizaje</p>
+                </div>
+                <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Colapsar menú">
+                    ☰
+                </button>
+            </div>
+
+            <nav class="guide-nav">
+                <div class="nav-group">
+                    <h3>INTRODUCCIÓN</h3>
+                    <button class="nav-item" data-target="identificacion">
+                        <span class="icon">🆔</span>
+                        <span class="text">1. Identificación</span>
+                    </button>
+                    <button class="nav-item active" data-target="presentacion">
+                        <span class="icon">👋</span>
+                        <span class="text">2. Presentación</span>
+                    </button>
+                </div>
+
+                <div class="nav-group">
+                    <h3>ACTIVIDADES</h3>
+                    <button class="nav-item" data-target="reflexion">
+                        <span class="icon">🤔</span>
+                        <span class="text">3.1 Reflexión Inicial</span>
+                    </button>
+                    <button class="nav-item" data-target="contextualizacion">
+                        <span class="icon">📖</span>
+                        <span class="text">3.2 Contextualización</span>
+                    </button>
+                    <button class="nav-item" data-target="apropiacion">
+                        <span class="icon">🧠</span>
+                        <span class="text">3.3 Apropiación</span>
+                    </button>
+                </div>
+
+                <div class="nav-group">
+                    <h3>LABORATORIO</h3>
+                    <button class="nav-item special-item" data-target="juegos">
+                        <span class="icon">🎮</span>
+                        <span class="text">Centro de Juegos</span>
+                    </button>
+                    <button class="nav-item special-item" data-target="glosario">
+                        <span class="icon">📚</span>
+                        <span class="text">Glosario Scrum</span>
+                    </button>
+                    <button class="nav-item special-item" data-target="transferencia">
+                        <span class="icon">🏃</span>
+                        <span class="text">Simulador Sprint</span>
+                    </button>
+                    <button class="nav-item premium-item" data-target="vision-game">
+                        <span class="icon">👁️</span>
+                        <span class="text">Scrum Vision</span>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="user-status glass-panel">
+                <small>Progreso del Aprendiz</small>
+                <div class="level-badge">Nivel <span id="level-display">Novato</span></div>
+                <div class="xp-bar-container">
+                    <div class="xp-bar" id="xp-bar"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ÁREA PRINCIPAL DE CONTENIDO -->
+        <main class="main-content">
+
+            <!-- CONTENEDOR DE LA GUÍA (TEXTO Y TEORÍA) -->
+            <section id="guide-container" class="content-view active-view">
+                <!-- Se inyectará contenido dinámicamente desde guide-content.js -->
+            </section>
+
+            <!-- CONTENEDOR ESPECÍFICO DEL SIMULADOR (OCULTO POR DEFECTO) -->
+            <section id="simulator-container" class="content-view hidden-view">
+                <h1>Simulador de Sprint Scrum</h1>
+                <p>Gestiona el flujo de trabajo y protege al equipo.</p>
+                </header>
+
+                <div class="simulator-onboarding glass-panel">
+                    <p>💡 <b>Objetivo del Sprint:</b> Implementar el sistema de Login y Lista de Restaurantes funcional.
+                    </p>
+                    <div class="onboarding-steps">
+                        <h3>Cómo usar el simulador</h3>
+                        <ol>
+                            <li>Lee el objetivo y selecciona las historias clave.</li>
+                            <li>Arrastra tarjetas de <b>Por Hacer</b> a <b>En Progreso</b> para empezar.</li>
+                            <li>Finaliza tareas moviéndolas a <b>Terminado</b>.</li>
+                            <li>Pulsa “Finalizar Día” para registrar avances y eventos.</li>
+                            <li>Revisa tus métricas y ajusta el plan.</li>
+                        </ol>
+                    </div>
+                    <div class="onboarding-legend">
+                        <h4>Guía rápida</h4>
+                        <dl>
+                            <dt>SP</dt>
+                            <dd>Puntos de Historia. Estiman esfuerzo, no tiempo exacto.</dd>
+                            <dt>Día</dt>
+                            <dd>Duración del Sprint. Avanza con “Finalizar Día”.</dd>
+                            <dt>Moral</dt>
+                            <dd>Estado del equipo. Baja si hay sobrecarga o bloqueos.</dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="simulator-dashboard">
+                    <div class="sprint-status glass-panel">
+                        <div class="status-item">Día: <span id="sim-day">1</span>/10 <span class="icon">📆</span></div>
+                        <div class="status-item">Moral: <span id="sim-morale">100%</span> <span class="icon">❤️</span>
+                        </div>
+                        <div class="status-item">SP Completados: <span id="sim-velocity">0</span> <span
+                                class="icon">🚀</span></div>
+                    </div>
+
+                    <div class="kanban-board" id="kanban-board">
+                        <div class="column" id="col-todo" data-status="todo">
+                            <div class="col-header to-do">Por Hacer</div>
+                            <div class="droppable-area" data-status="todo"></div>
+                        </div>
+                        <div class="column" id="col-progress" data-status="inprogress">
+                            <div class="col-header in-progress">En Progreso</div>
+                            <div class="droppable-area" data-status="inprogress"></div>
+                        </div>
+                        <div class="column" id="col-done" data-status="done">
+                            <div class="col-header done">Terminado</div>
+                            <div class="droppable-area" data-status="done"></div>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button id="btn-next-day" class="action-btn primary-btn">Finalizar Día (Daily Scrum)</button>
+                        <button id="btn-reset" class="action-btn danger-btn">Reiniciar Simulación</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTENEDOR SCRUM VISION (NUEVO) -->
+            <section id="vision-game-container" class="content-view hidden-view h-full">
+                <!-- Inyectado por scrum-vision-game.js -->
+            </section>
+
+            <!-- PIE DE PÁGINA -->
+            <footer class="app-footer">
+                <div class="footer-content">
+                    <p>&copy; 2026 ScrumMastery ADSO. Todos los derechos reservados.</p>
+                    <div class="footer-links">
+                        <span>Versión 2.0.0</span>
+                        <span class="separator">•</span>
+                        <span>Desarrollado con ❤️ para el SENA</span>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- MODAL PARA DECISIONES / FEEDBACK -->
+    <div id="decision-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <h2 id="modal-title">Evento del Sprint</h2>
+            <p id="modal-desc">...</p>
+            <div class="modal-options" id="modal-options"></div>
+        </div>
+    </div>
+
+    <!-- MODAL PARA CONTENIDO (TEORÍA / DETALLES) -->
+    <div id="content-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="content-modal-title">
+        <div class="modal-content modal-content--wide glass-panel" role="document" tabindex="-1">
+            <div class="modal-header">
+                <h2 id="content-modal-title">Detalle</h2>
+                <button type="button" class="modal-close" aria-label="Cerrar" data-modal-close>
+                    ✕
+                </button>
+            </div>
+            <div id="content-modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- MODAL PARA IMÁGENES (ZOOM) -->
+    <div id="image-modal" class="modal modal--image hidden" role="dialog" aria-modal="true">
+        <div class="modal-content modal-content--image glass-panel">
+            <button type="button" class="modal-close" aria-label="Cerrar" onclick="app.closeImageModal()">
+                ✕
+            </button>
+            <div class="modal-body">
+                <img id="modal-image-enlarged" src="" alt="Imagen ampliada">
+                <p id="modal-image-caption" class="caption"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Inicializar Mermaid
+        mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+    </script>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

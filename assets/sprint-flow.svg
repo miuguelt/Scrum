@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-label="Flujo de un Sprint: planificar, trabajar, revisar y mejorar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#101b32"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#fb923c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity="0.42"/>
+    </filter>
+    <style>
+      .title{font:800 44px/1.2 system-ui,Segoe UI,Roboto,Arial; fill:#e2e8f0}
+      .muted{font:600 18px/1.35 system-ui,Segoe UI,Roboto,Arial; fill:#94a3b8}
+      .label{font:750 20px/1.2 system-ui,Segoe UI,Roboto,Arial; fill:#f8fafc}
+      .text{font:520 16px/1.35 system-ui,Segoe UI,Roboto,Arial; fill:#cbd5e1}
+      .pill{font:750 14px/1 system-ui,Segoe UI,Roboto,Arial; fill:#0b1020}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="520" rx="28" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1552" height="472" rx="22" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+
+  <text x="70" y="92" class="title">Flujo de un Sprint</text>
+  <text x="70" y="126" class="muted">Ciclos cortos para aprender rápido: planificar → construir → revisar → mejorar</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="190" width="280" height="220" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="96" y="210" width="112" height="26" rx="13" fill="#2dd4bf"/>
+    <text x="116" y="229" class="pill">INICIO</text>
+    <text x="96" y="272" class="label">Sprint Planning</text>
+    <text x="96" y="304" class="text">• Sprint Goal</text>
+    <text x="96" y="328" class="text">• Selección de PBIs</text>
+    <text x="96" y="352" class="text">• Plan de trabajo</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="390" y="190" width="420" height="220" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="416" y="210" width="130" height="26" rx="13" fill="#fb923c"/>
+    <text x="436" y="229" class="pill">DÍA A DÍA</text>
+    <text x="416" y="272" class="label">Trabajo + Daily</text>
+    <text x="416" y="304" class="text">• Avance hacia el Sprint Goal</text>
+    <text x="416" y="328" class="text">• Ajuste del Sprint Backlog</text>
+    <text x="416" y="352" class="text">• Impedimentos visibles</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="850" y="190" width="320" height="220" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="876" y="210" width="122" height="26" rx="13" fill="#a3e635"/>
+    <text x="896" y="229" class="pill">FEEDBACK</text>
+    <text x="876" y="272" class="label">Sprint Review</text>
+    <text x="876" y="304" class="text">• Mostrar Incremento</text>
+    <text x="876" y="328" class="text">• Feedback stakeholders</text>
+    <text x="876" y="352" class="text">• Ajuste del Backlog</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1210" y="190" width="320" height="220" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="1236" y="210" width="136" height="26" rx="13" fill="url(#accent)"/>
+    <text x="1256" y="229" class="pill">MEJORA</text>
+    <text x="1236" y="272" class="label">Retrospective</text>
+    <text x="1236" y="304" class="text">• Qué mejorar</text>
+    <text x="1236" y="328" class="text">• Acción concreta</text>
+    <text x="1236" y="352" class="text">• Experimento próximo Sprint</text>
+  </g>
+
+  <path d="M350 300 C370 300, 370 300, 390 300" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M810 300 C830 300, 830 300, 850 300" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1170 300 C1190 300, 1190 300, 1210 300" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M370 300 l-16 -10 l0 20 z" fill="#fb923c"/>
+  <path d="M830 300 l-16 -10 l0 20 z" fill="#a3e635"/>
+  <path d="M1190 300 l-16 -10 l0 20 z" fill="#fb923c"/>
+
+  <g>
+    <rect x="70" y="432" width="1460" height="58" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="96" y="468" class="muted">Clave: cada evento existe para que el equipo inspeccione el progreso y adapte el plan sin perder el foco.</text>
+  </g>
+</svg>

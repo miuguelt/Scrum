@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-label="Contexto del proyecto Eco-Bot: sensores, clasificación, separación y reporte">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#101b32"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#fb923c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <style>
+      .title{font:800 44px/1.2 system-ui,Segoe UI,Roboto,Arial; fill:#e2e8f0}
+      .subtitle{font:600 22px/1.3 system-ui,Segoe UI,Roboto,Arial; fill:#94a3b8}
+      .label{font:700 22px/1.2 system-ui,Segoe UI,Roboto,Arial; fill:#f8fafc}
+      .text{font:500 18px/1.35 system-ui,Segoe UI,Roboto,Arial; fill:#cbd5e1}
+      .chip{font:700 14px/1 system-ui,Segoe UI,Roboto,Arial; fill:#0b1020}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="520" rx="28" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1552" height="472" rx="22" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+
+  <text x="70" y="92" class="title">Eco‑Bot: del problema real al Sprint</text>
+  <text x="70" y="128" class="subtitle">Una vista rápida para entender qué construye el equipo y dónde entra Scrum</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="180" width="340" height="230" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="96" y="200" width="96" height="26" rx="13" fill="#2dd4bf"/>
+    <text x="118" y="219" class="chip">ENTRADA</text>
+    <text x="96" y="262" class="label">Sensores &amp; Datos</text>
+    <text x="96" y="296" class="text">• Cámara / sensor IR</text>
+    <text x="96" y="322" class="text">• Peso / presencia</text>
+    <text x="96" y="348" class="text">• Dataset de materiales</text>
+    <text x="96" y="374" class="text">• Reglas de seguridad</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="470" y="180" width="380" height="230" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="496" y="200" width="132" height="26" rx="13" fill="#fb923c"/>
+    <text x="516" y="219" class="chip">NÚCLEO</text>
+    <text x="496" y="262" class="label">Clasificación &amp; Lógica</text>
+    <text x="496" y="296" class="text">• Modelo (visión/ML)</text>
+    <text x="496" y="322" class="text">• Reglas de decisión</text>
+    <text x="496" y="348" class="text">• Manejo de errores</text>
+    <text x="496" y="374" class="text">• Telemetría y logs</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="910" y="180" width="300" height="230" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="936" y="200" width="120" height="26" rx="13" fill="#a3e635"/>
+    <text x="956" y="219" class="chip">SALIDA</text>
+    <text x="936" y="262" class="label">Separación Física</text>
+    <text x="936" y="296" class="text">• Compuertas</text>
+    <text x="936" y="322" class="text">• Motores/actuadores</text>
+    <text x="936" y="348" class="text">• Seguridad del usuario</text>
+    <text x="936" y="374" class="text">• Pruebas en campo</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1240" y="180" width="290" height="230" rx="18" fill="rgba(30,41,59,0.55)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="1266" y="200" width="154" height="26" rx="13" fill="url(#stroke)"/>
+    <text x="1286" y="219" class="chip">VALOR</text>
+    <text x="1266" y="262" class="label">Reporte &amp; Impacto</text>
+    <text x="1266" y="296" class="text">• Kilos por material</text>
+    <text x="1266" y="322" class="text">• Reporte diario/semanal</text>
+    <text x="1266" y="348" class="text">• Dashboard simple</text>
+    <text x="1266" y="374" class="text">• Exportable</text>
+  </g>
+
+  <path d="M410 295 C450 295, 450 295, 470 295" fill="none" stroke="url(#stroke)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M850 295 C890 295, 890 295, 910 295" fill="none" stroke="url(#stroke)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1210 295 C1230 295, 1230 295, 1240 295" fill="none" stroke="url(#stroke)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M450 295 l-16 -10 l0 20 z" fill="#fb923c"/>
+  <path d="M890 295 l-16 -10 l0 20 z" fill="#a3e635"/>
+  <path d="M1230 295 l-16 -10 l0 20 z" fill="#fb923c"/>
+
+  <g>
+    <rect x="70" y="432" width="1460" height="58" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="96" y="468" class="text">
+      En Scrum, cada Sprint convierte una parte de este flujo en un Incremento útil: primero “clasifica bien”, luego “separa seguro”, luego “reporta mejor”.
+    </text>
+  </g>
+</svg>

@@ -18,7 +18,7 @@
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <!-- Mermaid.js for Diagrams -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
 
     <div class="app-layout">
         <!-- SIDEBAR DE NAVEGACIÓN -->
-        <aside class="sidebar collapsed" id="main-sidebar">
+        <aside class="sidebar" id="main-sidebar">
             <div class="sidebar-header">
                 <div class="header-content">
                     <div class="logo">Scrum<span class="highlight">ADSO</span></div>
@@ -47,11 +47,11 @@
             <nav class="guide-nav">
                 <div class="nav-group">
                     <h3>INTRODUCCIÓN</h3>
-                    <button class="nav-item" data-target="identificacion">
+                    <button class="nav-item" data-target="identificacion" title="1. Identificación">
                         <span class="icon">🆔</span>
                         <span class="text">1. Identificación</span>
                     </button>
-                    <button class="nav-item active" data-target="presentacion">
+                    <button class="nav-item active" data-target="presentacion" title="2. Presentación">
                         <span class="icon">👋</span>
                         <span class="text">2. Presentación</span>
                     </button>
@@ -59,15 +59,15 @@
 
                 <div class="nav-group">
                     <h3>ACTIVIDADES</h3>
-                    <button class="nav-item" data-target="reflexion">
+                    <button class="nav-item" data-target="reflexion" title="3.1 Reflexión Inicial">
                         <span class="icon">🤔</span>
                         <span class="text">3.1 Reflexión Inicial</span>
                     </button>
-                    <button class="nav-item" data-target="contextualizacion">
+                    <button class="nav-item" data-target="contextualizacion" title="3.2 Contextualización">
                         <span class="icon">📖</span>
                         <span class="text">3.2 Contextualización</span>
                     </button>
-                    <button class="nav-item" data-target="apropiacion">
+                    <button class="nav-item" data-target="apropiacion" title="3.3 Apropiación">
                         <span class="icon">🧠</span>
                         <span class="text">3.3 Apropiación</span>
                     </button>
@@ -75,19 +75,19 @@
 
                 <div class="nav-group">
                     <h3>LABORATORIO</h3>
-                    <button class="nav-item special-item" data-target="juegos">
+                    <button class="nav-item special-item" data-target="juegos" title="Centro de Juegos">
                         <span class="icon">🎮</span>
                         <span class="text">Centro de Juegos</span>
                     </button>
-                    <button class="nav-item special-item" data-target="glosario">
+                    <button class="nav-item special-item" data-target="glosario" title="Glosario Scrum">
                         <span class="icon">📚</span>
                         <span class="text">Glosario Scrum</span>
                     </button>
-                    <button class="nav-item special-item" data-target="transferencia">
+                    <button class="nav-item special-item" data-target="transferencia" title="Simulador Sprint">
                         <span class="icon">🏃</span>
                         <span class="text">Simulador Sprint</span>
                     </button>
-                    <button class="nav-item premium-item" data-target="vision-game">
+                    <button class="nav-item premium-item" data-target="vision-game" title="Scrum Vision">
                         <span class="icon">👁️</span>
                         <span class="text">Scrum Vision</span>
                     </button>

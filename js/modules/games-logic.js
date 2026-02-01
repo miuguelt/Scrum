@@ -54,7 +54,7 @@ const GamesLogic = {
             // Click to Select
             el.addEventListener('click', (e) => {
                 if (el.classList.contains('matched')) return;
-                
+
                 // Toggle selection
                 if (selectedItem === el) {
                     selectedItem.classList.remove('selected');
@@ -95,11 +95,11 @@ const GamesLogic = {
                 if (itemData.role === roleName) {
                     const itemEl = document.getElementById(`resp-${itemId}`);
                     el.querySelector('.drop-area').appendChild(itemEl);
-                    
+
                     itemEl.draggable = false;
                     itemEl.classList.remove('selected');
                     itemEl.classList.add('matched');
-                    
+
                     el.classList.remove('highlight');
                     el.classList.add('correct-match');
                     setTimeout(() => el.classList.remove('correct-match'), 1000);
@@ -107,14 +107,14 @@ const GamesLogic = {
                     store.addXP(10);
                     feedback.innerText = "✅ ¡Correcto!";
                     feedback.style.color = 'var(--accent)';
-                    
+
                     if (selectedItem === itemEl) selectedItem = null;
                     this.checkWinRoleMatching(container);
                 } else {
                     el.classList.remove('highlight');
                     el.classList.add('incorrect-match');
                     setTimeout(() => el.classList.remove('incorrect-match'), 500);
-                    
+
                     feedback.innerText = "❌ No pertenece a este rol.";
                     feedback.style.color = 'var(--danger)';
                 }
@@ -198,7 +198,7 @@ const GamesLogic = {
             <div class="glass-panel" style="text-align: center;">
                 <p style="font-size: 2rem;">Puntuación: ${score}/${total}</p>
                 <p>${score === total ? "¡Eres un experto en Scrum!" : "Buen intento. Sigue repasando la guía."}</p>
-                <button class="action-btn primary-btn" style="margin-top: 2rem;" onclick="app.loadSection('juegos')">Volver al Centro de Juegos</button>
+                <button class="action-btn primary-btn" style="margin-top: 2rem;" onclick="app.closeContentModal(); app.loadSection('juegos')">Volver al Centro de Juegos</button>
             </div>
         `;
     },
@@ -633,7 +633,7 @@ const GamesLogic = {
                 <div style="font-size: 3rem; margin-bottom: 1rem;">${type === "porcentaje" ? score + '%' : score + '/' + total}</div>
                 <p style="font-size: 1.2rem;">${message}</p>
                 <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
-                    <button class="action-btn primary-btn" onclick="app.loadSection('juegos')">Centro de Juegos</button>
+                    <button class="action-btn primary-btn" onclick="app.closeContentModal(); app.loadSection('juegos')">Centro de Juegos</button>
                     <button class="action-btn secondary-btn" onclick="location.reload()">Reiniciar App</button>
                 </div>
             </div>

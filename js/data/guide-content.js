@@ -1105,31 +1105,31 @@ export const guideContent = {
                     <span class="icon">🎯</span>
                     <h4>Foco del Sprint</h4>
                     <p>Selecciona las historias que sí cumplen el objetivo.</p>
-                    <span class="game-badge">Nuevo</span>
+
                 </div>
                 <div class="theory-card featured-game" onclick="app.loadGame('dod-check')">
                     <span class="icon">✅</span>
                     <h4>Definition of Done (Definición de Terminado)</h4>
                     <p>Valida qué criterios dejan un incremento listo.</p>
-                    <span class="game-badge">Nuevo</span>
+
                 </div>
                 <div class="theory-card featured-game" onclick="app.loadGame('artifact-match')">
                     <span class="icon">📦</span>
                     <h4>Artefactos Clave</h4>
                     <p>Asocia situaciones reales al artefacto correcto.</p>
-                    <span class="game-badge">Nuevo</span>
+
                 </div>
                 <div class="theory-card featured-game" onclick="app.loadGame('review-detective')">
                     <span class="icon">🕵️</span>
                     <h4>Review Detective</h4>
                     <p>Detecta qué evidencia demuestra valor real al cliente.</p>
-                    <span class="game-badge">Nuevo</span>
+
                 </div>
                 <div class="theory-card featured-game" onclick="app.loadGame('refinement-ready')">
                     <span class="icon">🧠</span>
                     <h4>Refinement Ready</h4>
                     <p>Elige historias que están listas para entrar al Sprint.</p>
-                    <span class="game-badge">Nuevo</span>
+
                 </div>
             </div>
             
@@ -1256,6 +1256,66 @@ export const guideContent = {
             </div>
         </div>
 `,
+    "teoria-plantillas": `
+        <h3>🛠️ Plantillas y Herramientas Ágiles</h3>
+        <p>Acelera tu trabajo con estas plantillas listas para usar. Copia, pega y adáptalas a tu proyecto.</p>
+        
+        <div class="role-detail">
+            <!-- 1. USER STORY -->
+            <div class="example-box glass-panel">
+                <div class="header-with-action" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <h4>📝 Historia de Usuario (Estándar)</h4>
+                    <button class="copy-btn small" onclick="navigator.clipboard.writeText('Como [Rol], quiero [Acción] para [Beneficio].')">Copiar</button>
+                </div>
+                <div class="code-block" style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 6px; font-family: monospace;">
+                    <strong>Como</strong> [Rol del usuario],<br>
+                    <strong>quiero</strong> [acción o funcionalidad],<br>
+                    <strong>para</strong> [beneficio o valor].
+                </div>
+            </div>
+
+            <!-- 2. GHERKIN -->
+            <div class="example-box glass-panel">
+                <div class="header-with-action" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <h4>🧪 Criterios de Aceptación (Gherkin)</h4>
+                    <button class="copy-btn small" onclick="navigator.clipboard.writeText('DADO [Contexto inicial],\nCUANDO [Acción del usuario],\nENTONCES [Resultado esperado].')">Copiar</button>
+                </div>
+                <div class="code-block" style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 6px; font-family: monospace;">
+                    <strong>DADO</strong> [contexto inicial],<br>
+                    <strong>CUANDO</strong> [acción del usuario],<br>
+                    <strong>ENTONCES</strong> [resultado esperado].
+                </div>
+            </div>
+
+            <!-- 3. DOD -->
+            <div class="example-box glass-panel">
+                <div class="header-with-action" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <h4>✅ Definition of Done (DoD)</h4>
+                    <button class="copy-btn small" onclick="navigator.clipboard.writeText('- [ ] Código revisado (Peer Review)\n- [ ] Pruebas unitarias pasadas\n- [ ] Criterios de aceptación cumplidos\n- [ ] No hay deuda técnica crítica\n- [ ] Documentación actualizada')">Copiar</button>
+                </div>
+                <div class="code-block" style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 6px; font-family: monospace;">
+                    - [ ] Código revisado (Peer Review)<br>
+                    - [ ] Pruebas unitarias pasadas<br>
+                    - [ ] Criterios de aceptación cumplidos<br>
+                    - [ ] No hay deuda técnica crítica<br>
+                    - [ ] Documentación actualizada
+                </div>
+            </div>
+
+            <!-- 4. DAILY SCRIPT -->
+            <div class="example-box glass-panel">
+                <div class="header-with-action" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <h4>🗣️ Daily Scrum (Script)</h4>
+                    <button class="copy-btn small" onclick="navigator.clipboard.writeText('1. ¿Qué hice ayer que ayudó al equipo a lograr el Sprint Goal?\n2. ¿Qué haré hoy para ayudar al equipo a lograr el Sprint Goal?\n3. ¿Veo algún impedimento que evite que el equipo logre el Sprint Goal?')">Copiar</button>
+                </div>
+                <div class="code-block" style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 6px; font-family: monospace;">
+                    1. ¿Qué hice ayer que ayudó al equipo a lograr el Sprint Goal?<br>
+                    2. ¿Qué haré hoy para ayudar al equipo a lograr el Sprint Goal?<br>
+                    3. ¿Veo algún impedimento que evite que el equipo logre el Sprint Goal?
+                </div>
+            </div>
+        </div>
+    `,
     "glosario": `
         <article class="guide-section">
             <h2>📚 Glosario de Términos Scrum</h2>

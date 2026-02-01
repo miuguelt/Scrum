@@ -104,10 +104,12 @@ body {
     font-family: var(--font-body);
     background-color: var(--bg-main);
     color: var(--text-main);
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
     line-height: 1.6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Prevent body scroll, use inner containers */
 }
 
 .modal-open .main-content {
@@ -121,7 +123,8 @@ body {
 /* APP LAYOUT */
 .app-layout {
     display: flex;
-    min-height: 100vh;
+    height: 100%;
+    overflow: hidden;
     background:
         radial-gradient(circle at 12% 8%, rgba(20, 184, 166, 0.15), transparent 45%),
         radial-gradient(circle at 85% 18%, rgba(249, 115, 22, 0.1), transparent 42%),
@@ -159,6 +162,15 @@ body {
     padding: 0.4rem 0.6rem;
     border-radius: var(--radius-sm);
     transition: var(--transition);
+}
+
+.col-header {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    margin-bottom: 0.5rem;
 }
 
 .sidebar-toggle:hover {
@@ -201,6 +213,11 @@ body {
     padding-left: 0;
 }
 
+.simulator-onboarding {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+}
+
 .sidebar.collapsed .nav-item {
     justify-content: center;
     padding: 0.85rem 0;
@@ -230,12 +247,14 @@ body {
     letter-spacing: -0.05em;
     background: linear-gradient(to right, #fff, #cbd5e1);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .highlight {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -376,10 +395,27 @@ body {
     flex: 1;
     min-width: 0;
     overflow-y: auto;
-    padding-block: clamp(1.5rem, 2.5vw, 2.5rem);
-    padding-inline: clamp(1rem, 3vw, 3rem);
+    padding: 0;
+    /* Remove default padding, let views handle it */
     position: relative;
     scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+}
+
+#vision-game-container {
+    height: 100%;
+    /* Force full height for game */
+    padding: 0.5rem;
+    /* Minimal padding for game view */
+}
+
+/* Default padding for normal guide views */
+.content-view.active-view:not(#vision-game-container) {
+    padding: clamp(1.5rem, 2.5vw, 2.5rem);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .main-content::before {
@@ -826,6 +862,18 @@ strong {
     transition: opacity 0.3s ease;
 }
 
+#content-modal {
+    z-index: 2000;
+}
+
+#decision-modal {
+    z-index: 2100;
+}
+
+#image-modal {
+    z-index: 2200;
+}
+
 .modal.open {
     opacity: 1;
     pointer-events: auto;
@@ -855,16 +903,18 @@ strong {
 }
 
 .modal-content--game {
-    width: 98vw;
-    max-width: 1200px;
-    height: 95vh;
+    width: 95vw;
+    max-width: 1400px;
+    height: 90vh;
+    max-height: 900px;
     display: flex;
     flex-direction: column;
     background: var(--bg-main);
     color: var(--text-main);
     border: 1px solid var(--glass-border);
-    padding: clamp(1rem, 2vw, 1.5rem);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
     min-width: 0;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .modal-content--game .modal-body {
@@ -884,6 +934,13 @@ strong {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--glass-border);
+}
+
+.sprint-status {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .modal-body {
@@ -1090,13 +1147,21 @@ strong {
    ========================================= */
 
 /* Role Matching Game Layout */
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
 .role-game-container {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    gap: 2rem;
-    margin-top: 1rem;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    margin-top: 1.5rem;
     align-items: start;
     height: 100%;
+    min-height: 0;
 }
 
 .role-column {
@@ -1109,12 +1174,14 @@ strong {
 
 .role-column.responsibilities {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
     align-content: start;
     overflow-y: auto;
-    padding-right: 0.5rem;
+    padding: 0.5rem;
     min-width: 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
 }
 
 .role-column.roles {
@@ -1202,6 +1269,14 @@ strong {
 }
 
 /* Drop Zones (Roles) */
+.droppable-area {
+    min-height: 250px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
 .role-drop-zone {
     min-height: 160px;
     border: 2px dashed rgba(255, 255, 255, 0.1);

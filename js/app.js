@@ -9,8 +9,8 @@ class ScrumApp {
         this.currentSection = 'identificacion';
         this.simulator = null; // Lazy load
         this.visionGame = ScrumVisionGame;
-        this.activeModal = null;
         this._lastFocusedEl = null;
+        this._focusStack = [];
         this._modalCloseTimer = null;
 
         this.init();
@@ -492,37 +492,43 @@ class ScrumApp {
     setupModals() {
         const closeSelectors = '[data-modal-close]';
 
-        // Click outside to close (both modals)
+        // Helper to get topmost open modal
+        const getTopModal = () => Array.from(document.querySelectorAll('.modal.open')).pop();
+
+        // Click outside to close (topmost modal)
         document.addEventListener('click', (e) => {
-            const openModal = document.querySelector('.modal.open');
-            if (!openModal) return;
+            const topModal = getTopModal();
+            if (!topModal) return;
 
             if (e.target instanceof Element && e.target.matches(closeSelectors)) {
-                if (openModal.id === 'content-modal') this.closeContentModal();
-                else if (openModal.id === 'decision-modal') this.closeModal();
+                if (topModal.id === 'content-modal') this.closeContentModal();
+                else if (topModal.id === 'decision-modal') this.closeModal();
+                else if (topModal.id === 'image-modal') this.closeImageModal();
                 return;
             }
 
-            if (e.target === openModal) {
-                if (openModal.id === 'content-modal') this.closeContentModal();
-                else if (openModal.id === 'decision-modal') this.closeModal();
+            if (e.target === topModal) {
+                if (topModal.id === 'content-modal') this.closeContentModal();
+                else if (topModal.id === 'decision-modal') this.closeModal();
+                else if (topModal.id === 'image-modal') this.closeImageModal();
             }
         });
 
         // ESC + focus trap
         document.addEventListener('keydown', (e) => {
-            const openModal = document.querySelector('.modal.open');
-            if (!openModal) return;
+            const topModal = getTopModal();
+            if (!topModal) return;
 
             if (e.key === 'Escape') {
                 e.preventDefault();
-                if (openModal.id === 'content-modal') this.closeContentModal();
-                else if (openModal.id === 'decision-modal') this.closeModal();
+                if (topModal.id === 'content-modal') this.closeContentModal();
+                else if (topModal.id === 'decision-modal') this.closeModal();
+                else if (topModal.id === 'image-modal') this.closeImageModal();
                 return;
             }
 
             if (e.key === 'Tab') {
-                const focusables = this.getFocusableElements(openModal);
+                const focusables = this.getFocusableElements(topModal);
                 if (focusables.length === 0) return;
 
                 const first = focusables[0];
@@ -644,7 +650,10 @@ class ScrumApp {
             this._modalCloseTimer = null;
         }
 
-        this._lastFocusedEl = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        // Push current focus to stack for restoration
+        if (document.activeElement instanceof HTMLElement) {
+            this._focusStack.push(document.activeElement);
+        }
 
         modalEl.classList.remove('hidden');
         // Trigger transition
@@ -666,7 +675,7 @@ class ScrumApp {
 
         modalEl.classList.remove('open');
 
-        // Allow animation to play before display:none
+        // Allow animation to play before display:none (300ms transition)
         this._modalCloseTimer = setTimeout(() => {
             modalEl.classList.add('hidden');
             this._modalCloseTimer = null;
@@ -676,11 +685,11 @@ class ScrumApp {
                 this.activeModal = null;
             }
 
-            if (this._lastFocusedEl && document.contains(this._lastFocusedEl)) {
-                this._lastFocusedEl.focus();
+            const restoreFocus = this._focusStack.pop();
+            if (restoreFocus && document.contains(restoreFocus)) {
+                restoreFocus.focus();
             }
-            this._lastFocusedEl = null;
-        }, 190);
+        }, 310);
     }
 
     getFocusableElements(root) {
